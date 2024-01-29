@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import app from '../../firebase';
+import { app } from '../../firebase';
 function SocialLoginPage() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
@@ -41,7 +41,7 @@ function SocialLoginPage() {
 
   return (
     <>
-      <button  onClick={handleAuth} >구글 로그인 </button>
+      <button onClick={handleAuth} >구글 로그인 </button>
 
     </>
   )

@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useState } from "react";
+import SocialLogin from "./SocialLogin";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 

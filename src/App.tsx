@@ -1,11 +1,8 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import SocialLoginPage from './Pages/SocialLoginPage'
-import { Routes, Route } from 'react-router-dom'
+
+import { Routes, Route, Link } from 'react-router-dom'
 // import { BrowserRouter as Router } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // console.log(auth);
@@ -16,26 +13,40 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Signup
+      {/* <Signup
         email={email}
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
         errorMsg={errorMsg}
         setErrorMsg={setErrorMsg}
-      />
+      /> */}
       <Routes>
-        <Route path='social-login' element={<SocialLoginPage />} />
+        <Route path="/login" element={<Login email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          errorMsg={errorMsg}
+          setErrorMsg={setErrorMsg} />} />
+
+        <Route path="/sign-up" element={<Signup
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          errorMsg={errorMsg}
+          setErrorMsg={setErrorMsg}
+        />} />
       </Routes>
 
-      <Login
+      {/* <Login
         email={email}
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
         errorMsg={errorMsg}
         setErrorMsg={setErrorMsg}
-      />
+      /> */}
     </div>
   );
 };
