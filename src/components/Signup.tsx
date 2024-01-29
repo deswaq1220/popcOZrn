@@ -1,22 +1,38 @@
+import { useState } from "react";
+import TermsofUse from "./TermsofUse/TermsofUse";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+import Nav from "./Nav/Nav";
+import './Signup.css'
 
-const Signup: React.FC<{
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  errorMsg: string;
-  setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
-}> = ({ email, setEmail, password, setPassword, errorMsg, setErrorMsg }) => {
+const Signup = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [name, setName] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+  
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+    if(password !== confirmPassword) {
+      setErrorMsg("비밀번호가 일치하지 않습니다.")
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -29,7 +45,8 @@ const Signup: React.FC<{
 
         setEmail("");
         setPassword("");
-
+        setConfirmPassword("");
+        setErrorMsg("");
         // ...
       })
 
@@ -61,25 +78,56 @@ const Signup: React.FC<{
   };
 
   return (
+    <>
+    <div className="sign_up_wrap">
+    <Nav/>
+    <div className="sign_up_form_wrap">
+
     <form>
       <h2>회원가입</h2>
-      <div>
+      <div className="name">
+        <label htmlFor="name">이름</label>
         <input
+          id="name"
+          type="text"
+          onChange={handleNameChange}
+          placeholder="이름을 입력하세요"
+          value={name}
+        ></input>
+      </div>
+      <div className="email">
+        <label htmlFor="email">이메일</label>
+        <input
+          id="email"
           type="email"
           onChange={handleEmailChange}
-          placeholder="email"
+          placeholder="이메일을 입력하세요"
           value={email}
         ></input>
       </div>
-      <div>
+      <div className="password">
+        <label htmlFor="password">비밀번호</label>
         <input
+          id="password"
           type="password"
-          placeholder="password"
+          placeholder="비밀번호를 입력하세요"
           onChange={handlePasswordChange}
           value={password}
         ></input>
       </div>
-      <p>{errorMsg}</p>
+      <div className="reconfirm_password">
+      <label htmlFor="reconfirm_password">비밀번호 재확인</label>
+        <input
+          id="reconfirm_password"
+          type="password"
+          placeholder="비밀번호를 한번 더 입력하세요"
+          onChange={handleConfirmPasswordChange}
+          value={confirmPassword}
+        ></input>
+      </div>
+      <p className="error">{errorMsg}</p>
+
+     <TermsofUse/>
       <button
         type="submit"
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSignup(e)}
@@ -87,6 +135,9 @@ const Signup: React.FC<{
         가입하기
       </button>
     </form>
+    </div>
+    </div>
+    </>
   );
 };
 

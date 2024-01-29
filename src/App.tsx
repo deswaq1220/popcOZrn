@@ -30,12 +30,12 @@ const App: React.FC = () => {
           setErrorMsg={setErrorMsg} />} />
 
         <Route path="/sign-up" element={<Signup
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          errorMsg={errorMsg}
-          setErrorMsg={setErrorMsg}
+          // email={email}
+          // setEmail={setEmail}
+          // password={password}
+          // setPassword={setPassword}
+          // errorMsg={errorMsg}
+          // setErrorMsg={setErrorMsg}
         />} />
       </Routes>
 
