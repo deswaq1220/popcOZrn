@@ -4,6 +4,8 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import SocialLoginPage from './Pages/SocialLoginPage'
+import { Routes, Route } from 'react-router-dom'
 // import { BrowserRouter as Router } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // console.log(auth);
@@ -22,6 +24,9 @@ const App: React.FC = () => {
         errorMsg={errorMsg}
         setErrorMsg={setErrorMsg}
       />
+      <Routes>
+        <Route path='social-login' element={<SocialLoginPage />} />
+      </Routes>
 
       <Login
         email={email}
