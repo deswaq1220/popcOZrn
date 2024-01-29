@@ -7,7 +7,6 @@ header{
   height: 100px;
   padding: 30px;
   box-sizing: border-box;
-  position: fixed;
   display: flex;
   justify-content: center;
   background-color: #1d1d1d;
