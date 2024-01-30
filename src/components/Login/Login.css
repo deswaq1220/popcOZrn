@@ -26,7 +26,7 @@ body {
 }
 .login-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
 }
@@ -52,10 +52,22 @@ body {
   margin-top: 1rem;
   background-color: white;
   padding: 0.7rem;
-  border: 1px solid black;
-  /* border: none; */
+  /* border: 1px solid black; */
+  background-color: #000000;
+  border: none;
   font-weight: 800;
   cursor: pointer;
+  color: white;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.login-button:hover {
+  transform: scale(1.05);
+  background-color: #ca375c;
+  color: rgb(255, 255, 255);
 }
 .else {
   display: flex;
@@ -87,17 +99,28 @@ body {
   right: 0;
 }
 .google-login {
-  width: 20rem;
-  padding-top: 1rem;
+  border: 0.3px solid black;
+  padding: 7px;
+  width: 10rem;
+  margin-top: 0.8rem;
   display: flex;
   justify-content: center;
+  font-size: 0.8rem;
   align-items: center;
   cursor: pointer;
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.google-login:hover {
+  transform: scale(1.05);
+  background-color: #ca375c;
+  color: rgb(255, 255, 255);
+  border: none;
 }
 .google-logo {
-  width: 18px;
-  height: 18px;
-  margin-right: 15px;
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
 }
 .signup {
   border: none;
@@ -111,4 +134,7 @@ body {
 .signupbtn {
   font-weight: 900;
   padding-left: 0.3rem;
+}
+.signupbtn:hover {
+  color: rgb(255, 0, 0);
 }

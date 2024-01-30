@@ -6,9 +6,10 @@ import {
 import { useState } from "react";
 // import SocialLogin from "../SocialLogin";
 // import { useHistory } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 import { auth } from "../../firebase";
+import Signup from "../Signup";
 
 // React.FC<{
 //   // email: string;
@@ -20,6 +21,7 @@ import { auth } from "../../firebase";
 //   // { email, setEmail, password, setPassword, errorMsg, setErrorMsg }
 // }>
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -123,7 +125,10 @@ const Login = () => {
         </div>
         <div>
           <button className="signup">
-            아직 회원이 아니라면? <span className="signupbtn">회원가입</span>
+            아직 회원이 아니라면?
+            <Link to="sign-up">
+              <span className="signupbtn">회원가입</span>
+            </Link>
           </button>
         </div>
       </form>
