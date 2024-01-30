@@ -4,9 +4,10 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useState } from "react";
-import SocialLogin from "./SocialLogin";
+import SocialLogin from "../SocialLogin";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login: React.FC<{
   email: string;
@@ -76,36 +77,54 @@ const Login: React.FC<{
   //   }
   // });
   return (
-    <form>
-      <h2>로그인</h2>
-      <div>
-        <input
-          type="email"
-          onChange={handleEmailChange}
-          placeholder="email"
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <input
-          type="password"
-          placeholder="password"
-          onChange={handlePasswordChange}
-          value={password}
-          // value={password}
-        ></input>
-      </div>
-      <p>{errorMsg}</p>
-      <button
-        type="submit"
-        onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
-      >
-        로그인
-      </button>
-      <div>
-        <a>회원가입하기 </a>
-      </div>
-    </form>
+    <div className="login-container">
+      <form className="login-form">
+        <h2 className="login-title">로그인</h2>
+        <div className="input-div">
+          <div className="input-email">
+            <input
+              className="input"
+              type="email"
+              onChange={handleEmailChange}
+              placeholder="이메일"
+              value={email}
+            ></input>
+          </div>
+          <div className="input-pw">
+            <input
+              className="input"
+              type="password"
+              placeholder="비밀번호"
+              onChange={handlePasswordChange}
+              value={password}
+              // value={password}
+            ></input>
+          </div>
+        </div>
+        <p className="errorMsg">에러메시지{errorMsg}</p>
+
+        <button
+          className="login-button"
+          type="submit"
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
+        >
+          로그인
+        </button>
+
+        <div className="else">또는</div>
+        <div className="google-login">
+          <img
+            src="/src/img/google-logo.png"
+            alt="google-logo"
+            className="google-logo"
+          />
+          Google로 로그인
+        </div>
+        <div>
+          <button className="signup">회원가입</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
