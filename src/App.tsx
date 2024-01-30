@@ -1,16 +1,31 @@
-import { useState } from 'react'
-import Nav from './components/Nav/Nav'
-import './App.css'
+import { useState } from "react";
+import Nav from "./components/Nav/Nav";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route, Link, Outlet } from "react-router-dom";
+import Ticketing from "./components/Ticketing/Ticketing";
+// import { BrowserRouter as Router } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+// console.log(auth);
+
+const App: React.FC = () => {
+  const Layout = () => {
+    return (
+      <>
+        <Nav />
+        <Outlet />
+      </>
+    );
+  };
 
   return (
-    <>
-      
-      <Nav />
-    </>
-  )
-}
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/ticketing" element={<Ticketing />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+};
 
-export default App
+export default App;
