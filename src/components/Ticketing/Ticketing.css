@@ -73,3 +73,213 @@
   position: absolute;
   bottom: 0;
 }
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 65%;
+  height: 100%;
+  max-height: 85%;
+  position: relative;
+}
+.screen {
+  width: 648px;
+  height: 11%;
+  left: 550px;
+  top: 70px;
+  background: linear-gradient(0deg, #A9A8A8, #A9A8A8), #FFFFFF;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 70px;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+/* position: absolute;
+width: 695px;
+height: 78px;
+left: 3px;
+top: 2px; */
+
+.seatA {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 95px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatB {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 155px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatC {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 217px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatD {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 278px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatE {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 338px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatF {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 399px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.row1 {
+  display: flex;
+  margin-top: 20px;
+}
+.row {
+  display: flex;
+}
+.seat {
+  width: 49px;
+  height: 49px;
+  margin: 6px;
+  padding: 5px;
+  top: 9px;
+  background: linear-gradient(0deg, #D21919, #D21919), #FFFFFF;
+  border-radius: 5px;
+}
+.occupiedSeat {
+  width: 49px;
+  height: 49px;
+  margin: 6px;
+  padding: 5px;
+  top: 9px;
+  background: linear-gradient(0deg, #D0D0D0, #D0D0D0), #FFFFFF;
+  border-radius: 5px;
+}
+.showcase {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80px;
+
+}
+.availableSeatIcon {
+  position: absolute;
+  left: 130px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background: linear-gradient(0deg, #D21919, #D21919), #FFFFFF;
+  border-radius: 5px;
+}
+.selectedSeatIcon {
+  position: absolute;
+  left: 260px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background-color: #ffd600;
+  border-radius: 5px;
+}
+.occupiedSeatIcon {
+  position: absolute;
+  left: 390px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background: linear-gradient(0deg, #D0D0D0, #D0D0D0), #FFFFFF;
+  border-radius: 5px;
+}
+.availableSeat-text {
+  position: absolute;
+  left: 195px; 
+  color: #000000;
+}
+.selectedSeat-text {
+  position: absolute;
+  left: 325px;
+  color: #000000;
+
+}
+.occupiedSeat-text {
+  position: absolute;
+  left: 455px;
+  color: #000000;
+}
+.sum-price {
+  display: flex;
+  justify-content: start;
+  width: 50%;
+  height: 80px;
+  line-height: 40px;
+  font-size: 32px;
+  align-items: center;
+}
