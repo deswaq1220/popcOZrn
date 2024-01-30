@@ -1,10 +1,10 @@
 import {
   getAuth,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
+  // onAuthStateChanged,
 } from "firebase/auth";
-import { useState } from "react";
-import SocialLogin from "../SocialLogin";
+// import { useCallback, useState } from "react";
+// import SocialLogin from "../SocialLogin";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -17,15 +17,13 @@ const Login: React.FC<{
   errorMsg: string;
   setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
 }> = ({ email, setEmail, password, setPassword, errorMsg, setErrorMsg }) => {
-  // const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
-  const handleLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -39,7 +37,6 @@ const Login: React.FC<{
       })
       .catch((error) => {
         //가입실패했을 때
-
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
@@ -50,18 +47,15 @@ const Login: React.FC<{
           case "auth/missing-password":
             setErrorMsg("비밀번호를 입력해주세요.");
             break;
-          // case "auth/weak-password":
-          //   setErrorMsg("비밀번호는 6자리 이상이어야 합니다.");
-          //   break;
           case "auth/invalid-credential":
             setErrorMsg("입력하신 정보와 일치하는 계정이 없습니다.");
-
             setPassword("");
             setEmail("");
             break;
         }
       });
   };
+
   //로그인 상태 파악
   // const [IsLoggined, setIsLoggined] = useState(false);
   // const auth = getAuth();
@@ -76,18 +70,19 @@ const Login: React.FC<{
   //     // ...
   //   }
   // });
+
   return (
     <div className="login-container">
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleLogin}>
         <h2 className="login-title">로그인</h2>
         <div className="input-div">
           <div className="input-email">
             <input
               className="input"
               type="email"
+              value={email}
               onChange={handleEmailChange}
               placeholder="이메일"
-              value={email}
             ></input>
           </div>
           <div className="input-pw">
@@ -97,20 +92,17 @@ const Login: React.FC<{
               placeholder="비밀번호"
               onChange={handlePasswordChange}
               value={password}
-              // value={password}
             ></input>
           </div>
         </div>
         <p className="errorMsg">에러메시지{errorMsg}</p>
-
         <button
           className="login-button"
           type="submit"
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
+          // onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
         >
           로그인
         </button>
-
         <div className="else">또는</div>
         <div className="google-login">
           <img

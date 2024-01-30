@@ -7,11 +7,8 @@ import { Routes, Route, Link, Outlet } from "react-router-dom";
 // import { BrowserRouter as Router } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // console.log(auth);
-const App: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [errorMsg, setErrorMsg] = useState("");
 
+const App: React.FC = () => {
   const Layout = () => {
     return (
       <>
@@ -20,6 +17,9 @@ const App: React.FC = () => {
       </>
     );
   };
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState("");
   return (
     <div>
       {/* <Signup
