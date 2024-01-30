@@ -9,19 +9,19 @@ function Nav() {
           <p className="logo">popcOZrn</p>
           <ul className="icons">
             <li>
-              <SlCreditCard size={30} />
-              <p>예매</p>
+              <SlCreditCard size={20} />
+              <p>예매하기</p>
             </li>
             <li>
-              <SlLock size={30} />
+              <SlLock size={20} />
               <p>로그인</p>
             </li>
             <li>
-              <SlUserFollow size={30} />
+              <SlUserFollow size={20} />
               <p>회원가입</p>
             </li>
             <li>
-              <SlUser size={30} />
+              <SlUser size={20} />
               <p>마이페이지</p>
             </li>
           </ul>

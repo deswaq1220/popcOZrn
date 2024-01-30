@@ -8,6 +8,7 @@ import { useState } from "react";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { auth } from "../../firebase";
 
 // React.FC<{
 //   // email: string;
@@ -31,7 +32,7 @@ const Login = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    const auth = getAuth();
+    // const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         //가입성공했을 때
@@ -79,7 +80,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
+      <form className="login-form">
         <h2 className="login-title">로그인</h2>
         <div className="input-div">
           <div className="input-email">
@@ -101,15 +102,17 @@ const Login = () => {
             ></input>
           </div>
         </div>
-        <p className="errorMsg">에러메시지{errorMsg}</p>
+        <p className="errorMsg">{errorMsg}</p>
         <button
           className="login-button"
           type="submit"
-          // onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleLogin(e)}
         >
           로그인
         </button>
-        <div className="else">또는</div>
+        <div className="else">
+          <span className="else-text">또는</span>
+        </div>
         <div className="google-login">
           <img
             src="/src/img/google-logo.png"
@@ -119,7 +122,9 @@ const Login = () => {
           Google로 로그인
         </div>
         <div>
-          <button className="signup">회원가입</button>
+          <button className="signup">
+            아직 회원이 아니라면? <span className="signupbtn">회원가입</span>
+          </button>
         </div>
       </form>
     </div>

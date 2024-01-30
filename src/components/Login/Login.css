@@ -1,11 +1,18 @@
 * {
   box-sizing: border-box;
 }
+/* html,
+body {
+  margin: 0;
+  height: 100%;
+} */
 .login-container {
   margin: 0;
   padding: 0;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
+  min-height: 100vh;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +22,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 .login-title {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
 }
 .input-div {
   display: flex;
@@ -34,22 +45,54 @@
 .errorMsg {
   color: red;
   padding: 0.4rem;
+  font-size: 0.8rem;
 }
 .login-button {
-  width: 20rem;
+  width: 6rem;
+  margin-top: 1rem;
   background-color: white;
-  padding: 0.5rem;
+  padding: 0.7rem;
   border: 1px solid black;
+  /* border: none; */
   font-weight: 800;
+  cursor: pointer;
 }
 .else {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
   margin: 2rem 0 1rem 0;
+  position: relative;
+  width: 30%;
+  font-size: 0.8rem;
+}
+.else::before,
+.else::after {
+  content: "";
+  /* flex-grow: 1; */
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 20px);
+}
+.else::before {
+  left: 0;
+}
+.else::after {
+  right: 0;
 }
 .google-login {
   width: 20rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .google-logo {
   width: 18px;
@@ -60,6 +103,12 @@
   border: none;
   background-color: transparent;
   color: gray;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+.signupbtn {
+  font-weight: 900;
+  padding-left: 0.3rem;
 }
