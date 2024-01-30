@@ -55,5 +55,6 @@ button{
   max-width: 400px;
   height: 40px;
   border-radius: 3px;
+  cursor: pointer;
   
 }

@@ -5,12 +5,18 @@ import { auth } from "../firebase";
 import Nav from "./Nav/Nav";
 import './Signup.css'
 
+
+
 const Signup = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState("");
   const [name, setName] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  //이용약관 동의
+  const [termsAgreed, setTermsAgreed] = useState(false);
+
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -29,6 +35,11 @@ const Signup = () => {
   
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+
+    if(!termsAgreed){
+      setErrorMsg("이용약관에 동의해주세요")
+      return;
+    }
     if(password !== confirmPassword) {
       setErrorMsg("비밀번호가 일치하지 않습니다.")
       return;
@@ -127,7 +138,7 @@ const Signup = () => {
       </div>
       <p className="error">{errorMsg}</p>
 
-     <TermsofUse/>
+     <TermsofUse termsAgreed={termsAgreed} setTermsAgreed={setTermsAgreed}/>
       <button
         type="submit"
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleSignup(e)}
