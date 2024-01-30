@@ -17,37 +17,25 @@ const App: React.FC = () => {
       </>
     );
   };
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [errorMsg, setErrorMsg] = useState("");
+
   return (
     <div>
-      {/* <Signup
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        errorMsg={errorMsg}
-        setErrorMsg={setErrorMsg}
-      /> */}
-
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
             path="/login"
             element={
               <Login
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                errorMsg={errorMsg}
-                setErrorMsg={setErrorMsg}
+              // email={email}
+              // setEmail={setEmail}
+              // password={password}
+              // setPassword={setPassword}
+              // errorMsg={errorMsg}
+              // setErrorMsg={setErrorMsg}
               />
             }
           />
-
-          <Route
+          {/* <Route
             path="/sign-up"
             element={
               <Signup
@@ -59,18 +47,9 @@ const App: React.FC = () => {
                 setErrorMsg={setErrorMsg}
               />
             }
-          />
+          /> */}
         </Route>
       </Routes>
-
-      {/* <Login
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        errorMsg={errorMsg}
-        setErrorMsg={setErrorMsg}
-      /> */}
     </div>
   );
 };

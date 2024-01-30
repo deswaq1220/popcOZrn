@@ -3,20 +3,26 @@ import {
   signInWithEmailAndPassword,
   // onAuthStateChanged,
 } from "firebase/auth";
-// import { useCallback, useState } from "react";
+import { useState } from "react";
 // import SocialLogin from "../SocialLogin";
 // import { useHistory } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-const Login: React.FC<{
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  errorMsg: string;
-  setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
-}> = ({ email, setEmail, password, setPassword, errorMsg, setErrorMsg }) => {
+// React.FC<{
+//   // email: string;
+//   // setEmail: React.Dispatch<React.SetStateAction<string>>;
+//   // password: string;
+//   // setPassword: React.Dispatch<React.SetStateAction<string>>;
+//   // errorMsg: string;
+//   // setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
+//   // { email, setEmail, password, setPassword, errorMsg, setErrorMsg }
+// }>
+const Login = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
