@@ -1,18 +1,26 @@
-@font-face{
-  font-family:'DNFBitBitv2';
-  font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
 
-header{
+
+@font-face {
+  font-family: "DNFBitBitv2";
+  font-style: normal;
+  font-weight: 400;
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf")
+    format("opentype");
+}
+
+header {
   width: 100%;
-  height: 100px;
+  height: 80px;
+
   padding: 30px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   background-color: #1d1d1d;
-}
 
-.headerWrap{
+.headerWrap {
+  position: fixed;
+  top: 0;
   width: 1420px;
   height: 100%;
   display: flex;
@@ -20,34 +28,36 @@ header{
   align-items: center;
 }
 
-.logo{
-  font-family:'DNFBitBitv2';
-  font-size: 40px;
+
+
+
+.logo {
+  font-family: "DNFBitBitv2";
+  font-size: 32px;
   color: white;
 }
 
-.icons{
+.icons {
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-li{
+
+li {
   color: white;
-  margin-right: 25px;
+  /* margin-right: 25px; */
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  width: 65px;
 }
 
-li:last-child{
-  margin-right: 0;
-}
 
-li>p{
+li > p {
   margin-top: 5px;
+  font-size: 11px;
 }
-
