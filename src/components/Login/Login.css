@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+/* html,
+body {
+  margin: 0;
+  height: 100%;
+} */
+.login-container {
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+  width: 100%;
+  min-height: 100vh;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+.login-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+}
+.input-div {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  background-color: rgb(237, 237, 237);
+  border: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 20rem;
+  outline-style: none;
+}
+.errorMsg {
+  color: red;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+.login-button {
+  width: 6rem;
+  margin-top: 1rem;
+  background-color: white;
+  padding: 0.7rem;
+  /* border: 1px solid black; */
+  background-color: #000000;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  color: white;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.login-button:hover {
+  transform: scale(1.05);
+  background-color: #ca375c;
+  color: rgb(255, 255, 255);
+}
+.else {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 2rem 0 1rem 0;
+  position: relative;
+  width: 30%;
+  font-size: 0.8rem;
+}
+.else::before,
+.else::after {
+  content: "";
+  /* flex-grow: 1; */
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 20px);
+}
+.else::before {
+  left: 0;
+}
+.else::after {
+  right: 0;
+}
+.google-login {
+  border: 0.3px solid black;
+  padding: 7px;
+  width: 10rem;
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  align-items: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.google-login:hover {
+  transform: scale(1.05);
+  background-color: #ca375c;
+  color: rgb(255, 255, 255);
+  border: none;
+}
+.google-logo {
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+}
+.signup {
+  border: none;
+  background-color: transparent;
+  color: gray;
+  padding: 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+.signupbtn {
+  font-weight: 900;
+  padding-left: 0.3rem;
+}
+.signupbtn:hover {
+  color: rgb(255, 0, 0);
+}
