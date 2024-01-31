@@ -1,0 +1,60 @@
+.sign_up_wrap{
+  width: 100%;
+  height: auto;
+}
+
+.sign_up_form_wrap{
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+h2{
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+input[type=text],input[type=password],input[type=email]{
+  margin-top: 4px;
+  border:none;
+  outline: none;
+  background-color: #f6f6f6;
+  width: 400px;
+  height: 50px;
+  max-width: 400px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.name,.email,.password,.reconfirm_password{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.error{
+  color: rgb(234, 0, 0);
+}
+
+button{
+  margin: 30px 0;
+  border: none;
+  outline: none;
+  background-color: #1d1d1d;
+  color: white;
+  width: 400px;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  
+}

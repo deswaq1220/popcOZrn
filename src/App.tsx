@@ -21,6 +21,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Routes>
+
         <Route path="/" element={<Layout />}>
           <Route
             path="/login"

@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: "DNFBitBitv2";
   font-style: normal;
@@ -9,22 +11,25 @@
 header {
   width: 100%;
   height: 80px;
+
   padding: 30px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   background-color: #1d1d1d;
-  position: fixed;
-  top: 0;
-}
 
 .headerWrap {
+  position: fixed;
+  top: 0;
   width: 1420px;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+
+
 
 .logo {
   font-family: "DNFBitBitv2";
@@ -39,6 +44,7 @@ header {
   align-items: center;
 }
 
+
 li {
   color: white;
   /* margin-right: 25px; */
@@ -50,9 +56,6 @@ li {
   width: 65px;
 }
 
-/* li:last-child {
-  margin-right: 0;
-} */
 
 li > p {
   margin-top: 5px;

@@ -1,3 +1,4 @@
+
 // import React from 'react'
 import { SlLock, SlCreditCard, SlUser, SlUserFollow } from "react-icons/sl";
 import "./Nav.css";
@@ -5,6 +6,7 @@ function Nav() {
   return (
     <>
       <header>
+
         <div className="headerWrap">
           <p className="logo">popcOZrn</p>
           <ul className="icons">
@@ -28,7 +30,8 @@ function Nav() {
         </div>
       </header>
     </>
-  );
+  )
 }
 
-export default Nav;
+export default Nav
+
