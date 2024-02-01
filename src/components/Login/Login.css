@@ -42,6 +42,14 @@ body {
   width: 20rem;
   outline-style: none;
 }
+.input-pw ,.input-email{
+  display: flex;
+  flex-direction: column;
+}
+.input-email{
+  margin-bottom: 10px;
+}
+
 .errorMsg {
   color: red;
   padding: 0.4rem;

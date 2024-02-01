@@ -21,8 +21,8 @@ const TermsofUse: React.FC<TermsUseProps> = ({ termsAgreed, setTermsAgreed }) =>
     check2: false,
     check3: false,
     check4: false,
-    check5: true,
-    check6: true,
+    check5: false,
+    check6: false,
     check7: false,
   });
 

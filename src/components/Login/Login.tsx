@@ -86,7 +86,9 @@ const Login = () => {
         <h2 className="login-title">로그인</h2>
         <div className="input-div">
           <div className="input-email">
+            <label htmlFor="email">이메일</label>
             <input
+              id="email"
               className="input"
               type="email"
               value={email}
@@ -95,7 +97,9 @@ const Login = () => {
             ></input>
           </div>
           <div className="input-pw">
+            <label htmlFor="password">비밀번호</label>
             <input
+              id="password"
               className="input"
               type="password"
               placeholder="비밀번호"
@@ -126,7 +130,7 @@ const Login = () => {
         <div>
           <button className="signup">
             아직 회원이 아니라면?
-            <Link to="sign-up">
+            <Link to="/sign-up">
               <span className="signupbtn">회원가입</span>
             </Link>
           </button>
