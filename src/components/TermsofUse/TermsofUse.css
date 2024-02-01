@@ -1,0 +1,72 @@
+section{
+  width: 100%;
+  margin-top: 100px;
+  border-top: 1px solid #dedede;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.service{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.agree_text{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+label{
+  color: #1d1d1d;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label .check {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  background: url(../../assets/images/checkbox-inactive.svg) no-repeat;
+  cursor: pointer;
+  background-size: cover;
+  margin-right: 5px;
+}
+
+input[type="checkbox"]:checked + label .check {
+  background: url(../../assets/images/checkbox-active.svg) no-repeat;
+  background-size: cove;
+}
+
+.checkbox-wrap label {
+  display: flex;
+}
+
+.checkbox-wrap label .check {
+  flex: none;
+}
+
+.checkbox-wrap label .check-text {
+  flex: 1;
+}
+
+.description{
+  color: #888888;
+  font-size: 14px;
+}
+.checkbox-wrap{
+  margin-bottom: 20px;
+  
+}
+.horizontal {
+  display: flex;
+  margin-top: 8px;
+}
+.smsCheck{
+  margin-right: 20px;
+}
+
