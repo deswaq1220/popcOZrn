@@ -26,6 +26,8 @@ const TermsofUse: React.FC<TermsUseProps> = ({ termsAgreed, setTermsAgreed }) =>
     check7: false,
   });
 
+  
+
   useEffect(() => {
     setAllChecked(Object.values(individualChecks).every((item) => item));
   }, [individualChecks]);
@@ -39,34 +41,44 @@ const TermsofUse: React.FC<TermsUseProps> = ({ termsAgreed, setTermsAgreed }) =>
   }, [individualChecks.check5, individualChecks.check6]);
 
   const handleAllChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAllChecked(e.target.checked);
+    const isChecked = e.target.checked;
+    setAllChecked(isChecked);
     setIndividualChecks({
-      check2: e.target.checked,
-      check3: e.target.checked,
-      check4: e.target.checked,
-      check5: e.target.checked,
-      check6: e.target.checked,
-      check7: e.target.checked,
+      check2: isChecked,
+      check3: isChecked,
+      check4: isChecked,
+      check5: isChecked,
+      check6: isChecked,
+      check7: isChecked,
     });
-    setTermsAgreed(e.target.checked && individualChecks.check2 && individualChecks.check3);
+    setTermsAgreed(isChecked);
   };
 
   const handleIndividualChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.id === 'check4') {
-      setIndividualChecks({
-        ...individualChecks,
-        check5: e.target.checked,
-        check6: e.target.checked,
-        [e.target.id]: e.target.checked,
-      });
+    const { id, checked } = e.target;
+    if (id === 'check4') {
+      setIndividualChecks((prev) => ({
+        ...prev,
+        check5: checked,
+        check6: checked,
+        [id]: checked,
+      }));
     } else {
-      setIndividualChecks({
-        ...individualChecks,
-        [e.target.id]: e.target.checked,
-      });
+      setIndividualChecks((prev) => ({
+        ...prev,
+        [id]: checked,
+      }));
     }
-    setTermsAgreed(allChecked && individualChecks.check2 && individualChecks.check3)
+    if (id === 'check5' || id === 'check6') {
+      setIndividualChecks((prev) => ({
+        ...prev,
+        check4: prev.check5 && prev.check6,
+      }));
+    }
+    setTermsAgreed(allChecked && individualChecks.check2 && individualChecks.check3 && individualChecks.check7);
   };
+  
+  
 
   return (
     <>

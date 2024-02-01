@@ -51,6 +51,7 @@ const Login = () => {
         setPassword("");
         setErrorMsg("");
         localStorage.setItem("userData", JSON.stringify(userCredential.user))
+        navigate('/')
       })
       .catch((error) => {
         //가입실패했을 때

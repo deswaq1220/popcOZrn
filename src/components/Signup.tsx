@@ -1,7 +1,8 @@
 import { useState } from "react";
 import TermsofUse from "./TermsofUse/TermsofUse";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import './Signup.css'
 
@@ -13,6 +14,7 @@ const Signup = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [name, setName] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   //이용약관 동의
   const [termsAgreed, setTermsAgreed] = useState(false);
@@ -36,10 +38,7 @@ const Signup = () => {
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
-    if(!termsAgreed){
-      setErrorMsg("이용약관에 동의해주세요")
-      return;
-    }
+    
     if(password !== confirmPassword) {
       setErrorMsg("비밀번호가 일치하지 않습니다.")
       return;
@@ -50,14 +49,26 @@ const Signup = () => {
         const user = userCredential.user;
         console.log(userCredential, user);
 
-        alert("가입을 축하합니다!");
+        updateProfile(user,{
+          displayName:name
+        }).then(() => {
+          console.log(user.displayName)
 
-        setErrorMsg("");
+          alert(`${user.displayName}님 가입을 축하합니다!`);
+          navigate('/login')
+  
+          setErrorMsg("");
+  
+          setEmail("");
+          setName("");
+          setPassword("");
+          setConfirmPassword("");
+          setErrorMsg("");
 
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        setErrorMsg("");
+        }).catch((error) => {
+          console.error("에러낫으용",error)
+        })
+        
         // ...
       })
 
