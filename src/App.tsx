@@ -36,19 +36,7 @@ const App: React.FC = () => {
               />
             }
           />
-          {/* <Route
-            path="/sign-up"
-            element={
-              <Signup
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                errorMsg={errorMsg}
-                setErrorMsg={setErrorMsg}
-              />
-            }
-          /> */}
+          <Route path="/sign-up"element={<Signup/>}/>
         </Route>
       </Routes>
     </div>
