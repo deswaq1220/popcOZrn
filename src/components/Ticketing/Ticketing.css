@@ -88,7 +88,7 @@
   height: 11%;
   left: 550px;
   top: 70px;
-  background: linear-gradient(0deg, #A9A8A8, #A9A8A8), #FFFFFF;
+  background: linear-gradient(0deg, #a9a8a8, #a9a8a8), #ffffff;
   border-radius: 5px;
   font-style: normal;
   font-weight: 400;
@@ -96,8 +96,8 @@
   line-height: 70px;
   align-items: center;
   text-align: center;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 /* position: absolute;
 width: 695px;
@@ -208,7 +208,7 @@ top: 2px; */
   margin: 6px;
   padding: 5px;
   top: 9px;
-  background: linear-gradient(0deg, #D21919, #D21919), #FFFFFF;
+  background: linear-gradient(0deg, #d21919, #d21919), #ffffff;
   border-radius: 5px;
 }
 .occupiedSeat {
@@ -217,7 +217,7 @@ top: 2px; */
   margin: 6px;
   padding: 5px;
   top: 9px;
-  background: linear-gradient(0deg, #D0D0D0, #D0D0D0), #FFFFFF;
+  background: linear-gradient(0deg, #d0d0d0, #d0d0d0), #ffffff;
   border-radius: 5px;
 }
 .showcase {
@@ -226,7 +226,6 @@ top: 2px; */
   justify-content: flex-start;
   width: 100%;
   height: 80px;
-
 }
 .availableSeatIcon {
   position: absolute;
@@ -235,7 +234,7 @@ top: 2px; */
   height: 45px;
   margin: 6px;
   padding: 5px;
-  background: linear-gradient(0deg, #D21919, #D21919), #FFFFFF;
+  background: linear-gradient(0deg, #d21919, #d21919), #ffffff;
   border-radius: 5px;
 }
 .selectedSeatIcon {
@@ -255,19 +254,18 @@ top: 2px; */
   height: 45px;
   margin: 6px;
   padding: 5px;
-  background: linear-gradient(0deg, #D0D0D0, #D0D0D0), #FFFFFF;
+  background: linear-gradient(0deg, #d0d0d0, #d0d0d0), #ffffff;
   border-radius: 5px;
 }
 .availableSeat-text {
   position: absolute;
-  left: 195px; 
+  left: 195px;
   color: #000000;
 }
 .selectedSeat-text {
   position: absolute;
   left: 325px;
   color: #000000;
-
 }
 .occupiedSeat-text {
   position: absolute;
@@ -276,10 +274,53 @@ top: 2px; */
 }
 .sum-price {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   width: 50%;
   height: 80px;
   line-height: 40px;
   font-size: 32px;
   align-items: center;
+  position: relative;
+  top: -0.5rem;
 }
+.ticketing-btn {
+  width: 10rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: -1rem;
+  border: none;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.ticketing-btn:hover {
+  transform: scale(1.05);
+  /* background-color: #ffd600;
+  color: black; */
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+/* .login-button {
+  width: 6rem;
+  margin-top: 1rem;
+  background-color: white;
+  padding: 0.7rem;
+  /* border: 1px solid black; 
+  background-color: #000000;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  color: white;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.login-button:hover {
+  transform: scale(1.05);
+  background-color: #ca375c;
+  color: rgb(255, 255, 255);
+} */
