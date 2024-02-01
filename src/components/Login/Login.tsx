@@ -1,6 +1,8 @@
 import {
   getAuth,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   // onAuthStateChanged,
 } from "firebase/auth";
 import { useState } from "react";
@@ -8,7 +10,7 @@ import { useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
-import { auth } from "../../firebase";
+import { auth,app } from "../../firebase";
 import Signup from "../Signup";
 
 // React.FC<{
@@ -20,11 +22,16 @@ import Signup from "../Signup";
 //   // setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
 //   // { email, setEmail, password, setPassword, errorMsg, setErrorMsg }
 // }>
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [userData, setUserData] = useState({});
+
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -81,6 +88,18 @@ const Login = () => {
   //   }
   // });
 
+  const handleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUserData(result.user);
+        alert("로그인 되었습니다")
+        navigate("/")
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
   return (
     <div className="login-container">
       <form className="login-form">
@@ -120,7 +139,7 @@ const Login = () => {
         <div className="else">
           <span className="else-text">또는</span>
         </div>
-        <div className="google-login">
+        <div className="google-login" onClick={handleAuth}>
           <img
             src="/src/img/google-logo.png"
             alt="google-logo"
