@@ -91,7 +91,7 @@ const Signup = () => {
   return (
     <>
     <div className="sign_up_wrap">
-    {/* <Nav/> */}
+    <Nav/>
     <div className="sign_up_form_wrap">
 
     <form>
