@@ -43,6 +43,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
         setErrorMsg("");
+        localStorage.setItem("userData", JSON.stringify(userCredential.user))
       })
       .catch((error) => {
         //가입실패했을 때
