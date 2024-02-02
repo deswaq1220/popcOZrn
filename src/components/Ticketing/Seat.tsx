@@ -1,3 +1,5 @@
+import './Seat.css';
+
 const Seat = () => {
   return (
     <div className="right-container">
@@ -10,6 +12,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
+          <span className="blank"></span>
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
@@ -23,6 +26,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="occupiedSeat"></span>
           <span className="occupiedSeat"></span>
+          <span className="blank"></span>
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
@@ -36,6 +40,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
+          <span className="blank"></span>
           <span className="occupiedSeat"></span>
           <span className="occupiedSeat"></span>
           <span className="seat"></span>
@@ -49,6 +54,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
+          <span className="blank"></span>
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
@@ -62,6 +68,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
+          <span className="blank"></span>
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
@@ -75,6 +82,7 @@ const Seat = () => {
           <span className="seat"></span>
           <span className="seat"></span>
           <span className="occupiedSeat"></span>
+          <span className="blank"></span>
           <span className="occupiedSeat"></span>
           <span className="seat"></span>
           <span className="seat"></span>
