@@ -127,13 +127,27 @@ top: 2px; */
 .row {
   display: flex;
 }
+
 .seat {
   width: 46px;
   height: 46px;
   margin: 6px;
   padding: 5px;
   top: 9px;
-  background: linear-gradient(0deg, #d21919, #d21919), #ffffff;
+  /* background: selectedSeats ? linear-gradient(0deg, #d21919, #d21919), #ffffff : #ffd600; */
+  border-radius: 5px;
+}
+.seat:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+ .occupied-seat {
+  width: 46px;
+  height: 46px;
+  margin: 6px;
+  padding: 5px;
+  top: 9px;
+  background-color: #a9a9a9;
   border-radius: 5px;
 }
 .blank {
@@ -141,18 +155,10 @@ top: 2px; */
   height: 49px;
   margin: 6px;
   padding: 5px;
-  background-color: rgba(209, 207, 207, 0);
+
   top: 9px;
 }
-.occupiedSeat {
-  width: 46px;
-  height: 46px;
-  margin: 6px;
-  padding: 5px;
-  top: 9px;
-  background: linear-gradient(0deg, #d0d0d0, #d0d0d0), #ffffff;
-  border-radius: 5px;
-}
+
 .showcase {
   display: flex;
   flex-direction: row;
@@ -169,6 +175,7 @@ top: 2px; */
   padding: 5px;
   background: linear-gradient(0deg, #d21919, #d21919), #ffffff;
   border-radius: 5px;
+  cursor: default;
 }
 .selectedSeatIcon {
   position: absolute;
@@ -179,6 +186,7 @@ top: 2px; */
   padding: 5px;
   background-color: #ffd600;
   border-radius: 5px;
+  cursor: default;
 }
 .occupiedSeatIcon {
   position: absolute;
@@ -187,23 +195,27 @@ top: 2px; */
   height: 45px;
   margin: 6px;
   padding: 5px;
-  background: linear-gradient(0deg, #d0d0d0, #d0d0d0), #ffffff;
+  background: #a9a9a9;
   border-radius: 5px;
+  cursor: default;
 }
 .availableSeat-text {
   position: absolute;
   left: 195px;
   color: #000000;
+  cursor: default;
 }
 .selectedSeat-text {
   position: absolute;
   left: 325px;
   color: #000000;
+  cursor: default;
 }
 .occupiedSeat-text {
   position: absolute;
   left: 455px;
   color: #000000;
+  cursor: default;
 }
 .sum-price {
   display: flex;
