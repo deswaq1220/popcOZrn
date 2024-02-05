@@ -12,9 +12,9 @@ interface SeatProps {
 const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIndex, movies }) => {
   const [selectedSeats, setSelectedSeats] = useState<{ row: string; column: number }[]>([]);
 
-  const extractRowAndColumn = (seatId: string): {row: string; column: number} => {
+  const extractRowAndColumn = (seatId: string) => {
     const row = seatId.charAt(0);
-    const column = parseInt(seatId.slice(1), 10);
+    const column: number = parseInt(seatId.slice(1), 10);
     return { row, column };
   };
 
@@ -23,44 +23,66 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
     const selectedSeat = { row, column };
     //이미선택된 좌석인지 아닌지
     const isAlreadySelected = selectedSeats.some(
-      (seat) => seat.row === selectedSeat.row && seat.column === selectedSeat.column
+      (seat) =>
+        seat.row === selectedSeat.row && seat.column === selectedSeat.column
     );
-      //이미 선택된 좌석인 경우 
+    //이미 선택된 좌석인 경우
     if (isAlreadySelected) {
       setSelectedSeats((prevSelectedSeats) =>
         prevSelectedSeats.filter(
-          (seat) => seat.row !== selectedSeat.row || seat.column !== selectedSeat.column
+          (seat) =>
+            seat.row !== selectedSeat.row || seat.column !== selectedSeat.column
         )
       );
-       console.log("선택된 좌석");
-      setSelectedCount(selectedCount -= 2);
+      console.log("선택된 좌석");
+      setSelectedCount((selectedCount -= 2));
     } else {
-      //아직 선택되지 않은 경우 
-      setSelectedSeats((prevSelectedSeats) => [...prevSelectedSeats, selectedSeat]);
+      //아직 선택되지 않은 경우
+      setSelectedSeats((prevSelectedSeats) => [
+        ...prevSelectedSeats,
+        selectedSeat,
+      ]);
     }
-    setSelectedCount(selectedCount += 1);
+    setSelectedCount((selectedCount += 1));
   };
 
   const handleTicketing = () => {
     const totalPrice = calculateTotalPrice();
-    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
-    localStorage.setItem('totalPrice', totalPrice.toString());
-
+    localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
+    localStorage.setItem("totalPrice", totalPrice.toString());
     alert(
       "예매가 완료되었습니다!\n좌석: " +
         selectedSeats.map((seat) => `${seat.row}${seat.column}`).join(", ") +
-        "\n가격: " + totalPrice + "원"
+        "\n가격: " +
+        totalPrice +
+        "원"
     );
+    //예약된 좌석 회식으로 변하도록
+    //로컬에 저장된 예약된 좌석 가져오기(있으면 가져오고 없으면 안가져옴)
+    const reservedSeatStr = localStorage.getItem("selectedSeats") || null;
+    // 가져온 문자열 객체로 바꿔주기
+    const reservedSeats = JSON.parse(reservedSeatStr);
+    setReservedSeats(reservedSeats);
+  };
+  const isreservedSeats = (seatId: string) => {
+    const { row, column } = extractRowAndColumn(seatId);
+    return reservedSeats.some(
+      (reservedSeat) =>
+        reservedSeat.row === row && reservedSeat.column === column
+    );
+
+    //스타일 변경
   };
 
   const isSelectedSeat = (seatId: string) => {
     const { row, column } = extractRowAndColumn(seatId);
     return selectedSeats.some(
-      (selectedSeat) => selectedSeat.row === row && selectedSeat.column === column
+      (selectedSeat) =>
+        selectedSeat.row === row && selectedSeat.column === column
     );
   };
 
-  const isOccupiedSeat = (rowIndex:number, column:number) => {
+  const isOccupiedSeat = (rowIndex: number, column: number) => {
     return (
       (rowIndex === 2 && (column === 4 || column === 5)) ||
       (rowIndex === 3 && (column === 6 || column === 7)) ||
@@ -84,15 +106,17 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
             <span
               key={seatId}
               className="seat"
-              onClick={isClickable ? () => handleToggle(seatId) : undefined}
+              onClick={() => (isClickable ? handleToggle(seatId) : null)}
               style={{
                 background: occupiedSeat
-                  ? '#a9a9a9'
+                  ? "#a9a9a9"
+                  : isreservedSeats(seatId)
+                  ? "#a9a9a9"
                   : isSelectedSeat(seatId)
-                  ? '#ffd600'
-                  : 'linear-gradient(0deg, #d21919, #d21919)',
-                cursor: isClickable ? 'pointer' : 'not-allowed',
-                marginLeft: column === 6 ? '55px' : '5px',
+                  ? "#ffd600"
+                  : "linear-gradient(0deg, #d21919, #d21919)",
+                cursor: isClickable ? "pointer" : "not-allowed",
+                marginLeft: column === 6 ? "55px" : "5px",
               }}
             ></span>
           );
@@ -127,23 +151,25 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
         {renderSeats()}
       </div>
 
-       <div className="showcase">
-         <li>
-           <div className="availableSeatIcon"></div>
-           <div className="availableSeat-text">선택가능</div>
-         </li>
+      <div className="showcase">
         <li>
-           <div className="selectedSeatIcon"></div>
-           <div className="selectedSeat-text">선택좌석</div>
-         </li>
-         <li>
-           <div className="occupiedSeatIcon"></div>
-           <div className="occupiedSeat-text">예매완료</div>
-         </li>
-       </div>
-       <div className="sum-price">총 합계: {calculateTotalPrice()}원</div>
-       <button className="ticketing-btn" onClick={handleTicketing}>예매하기</button>
-     </div>
+          <div className="availableSeatIcon"></div>
+          <div className="availableSeat-text">선택가능</div>
+        </li>
+        <li>
+          <div className="selectedSeatIcon"></div>
+          <div className="selectedSeat-text">선택좌석</div>
+        </li>
+        <li>
+          <div className="occupiedSeatIcon"></div>
+          <div className="occupiedSeat-text">예매완료</div>
+        </li>
+      </div>
+      <div className="sum-price">총 합계: {calculateTotalPrice()}원</div>
+      <button className="ticketing-btn" onClick={handleTicketing}>
+        예매하기
+      </button>
+    </div>
   );
 };
 
