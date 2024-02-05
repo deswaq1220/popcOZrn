@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Seat.css';
+import { Movie } from "./Ticketing";
 
 interface SeatProps {
   selectedCount: number;
@@ -9,15 +10,15 @@ interface SeatProps {
 }
 
 const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIndex, movies }) => {
-  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [selectedSeats, setSelectedSeats] = useState<{ row: string; column: number }[]>([]);
 
-  const extractRowAndColumn = (seatId) => {
+  const extractRowAndColumn = (seatId: string): {row: string; column: number} => {
     const row = seatId.charAt(0);
     const column = parseInt(seatId.slice(1), 10);
     return { row, column };
   };
 
-  const handleToggle = (seatId) => {
+  const handleToggle = (seatId: string) => {
     const { row, column } = extractRowAndColumn(seatId);
     const selectedSeat = { row, column };
     //이미선택된 좌석인지 아닌지
@@ -31,12 +32,13 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
           (seat) => seat.row !== selectedSeat.row || seat.column !== selectedSeat.column
         )
       );
-      setSelectedCount((prevCount) => prevCount - 1);
+       console.log("선택된 좌석");
+      setSelectedCount(selectedCount -= 2);
     } else {
       //아직 선택되지 않은 경우 
       setSelectedSeats((prevSelectedSeats) => [...prevSelectedSeats, selectedSeat]);
     }
-    setSelectedCount(selectedSeats.length);
+    setSelectedCount(selectedCount += 1);
   };
 
   const handleTicketing = () => {
@@ -51,14 +53,14 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
     );
   };
 
-  const isSelectedSeat = (seatId) => {
+  const isSelectedSeat = (seatId: string) => {
     const { row, column } = extractRowAndColumn(seatId);
     return selectedSeats.some(
       (selectedSeat) => selectedSeat.row === row && selectedSeat.column === column
     );
   };
 
-  const isOccupiedSeat = (rowIndex, column) => {
+  const isOccupiedSeat = (rowIndex:number, column:number) => {
     return (
       (rowIndex === 2 && (column === 4 || column === 5)) ||
       (rowIndex === 3 && (column === 6 || column === 7)) ||
@@ -82,7 +84,7 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
             <span
               key={seatId}
               className="seat"
-              onClick={isClickable ? () => handleToggle(seatId) : null}
+              onClick={isClickable ? () => handleToggle(seatId) : undefined}
               style={{
                 background: occupiedSeat
                   ? '#a9a9a9'
