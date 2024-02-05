@@ -1,5 +1,4 @@
 // movie 객체 만들어서 map
-import { useState } from "react";
 import { Movie } from "./Ticketing";
 
 interface SelectProps {
@@ -7,12 +6,12 @@ interface SelectProps {
   selectedIndex: number;
   onSelectItem: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
-const Select = ({ movies, selectedIndex, onSelectItem }: SelectProps) => {
+const Select = ({ movies, onSelectItem }: SelectProps) => {
   return (
     <>
       <select onChange={onSelectItem} className="select">
-        {movies.map((item, index) => {
-          return <option key={index}>{item.title}</option>;
+        {movies.map((item) => {
+          return <option>{item.title}</option>;
         })}
       </select>
     </>
