@@ -12,7 +12,7 @@ const Select = ({ movies, selectedIndex, onSelectItem }: SelectProps) => {
     <>
       <select onChange={onSelectItem} className="select">
         {movies.map((item, index) => {
-          return <option>{item.title}</option>;
+          return <option key={index}>{item.title}</option>;
         })}
       </select>
     </>
