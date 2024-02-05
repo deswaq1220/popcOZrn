@@ -1,0 +1,233 @@
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 65%;
+  height: 100%;
+  max-height: 85%;
+  position: relative;
+}
+.screen {
+  width: 648px;
+  height: 11%;
+  left: 550px;
+  top: 70px;
+  background: linear-gradient(0deg, #a9a8a8, #a9a8a8), #ffffff;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 70px;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.seatA {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 75px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatB {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 133px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatC {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 192px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatD {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 250px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatE {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 307px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.seatF {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 70px;
+  top: 365px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.row1 {
+  display: flex;
+  margin-top: 20px;
+}
+.row {
+  display: flex;
+}
+.seat {
+  width: 46px;
+  height: 46px;
+  margin: 6px;
+  padding: 5px;
+  top: 9px;
+  /* background: selectedSeats ? linear-gradient(0deg, #d21919, #d21919), #ffffff : #ffd600; */
+  border-radius: 5px;
+}
+.seat:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+ .occupied-seat {
+  width: 46px;
+  height: 46px;
+  margin: 6px;
+  padding: 5px;
+  top: 9px;
+  background-color: #a9a9a9;
+  border-radius: 5px;
+}
+.showcase {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80px;
+}
+.availableSeatIcon {
+  position: absolute;
+  left: 130px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background: linear-gradient(0deg, #d21919, #d21919), #ffffff;
+  border-radius: 5px;
+  cursor: default;
+}
+.selectedSeatIcon {
+  position: absolute;
+  left: 260px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background-color: #ffd600;
+  border-radius: 5px;
+  cursor: default;
+}
+.occupiedSeatIcon {
+  position: absolute;
+  left: 390px;
+  width: 45px;
+  height: 45px;
+  margin: 6px;
+  padding: 5px;
+  background: #a9a9a9;
+  border-radius: 5px;
+  cursor: default;
+}
+.availableSeat-text {
+  position: absolute;
+  left: 195px;
+  color: #000000;
+  cursor: default;
+}
+.selectedSeat-text {
+  position: absolute;
+  left: 325px;
+  color: #000000;
+  cursor: default;
+}
+.occupiedSeat-text {
+  position: absolute;
+  left: 455px;
+  color: #000000;
+  cursor: default;
+}
+.sum-price {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 80px;
+  line-height: 40px;
+  font-size: 32px;
+  align-items: center;
+  position: relative;
+  top: -0.5rem;
+}
+.ticketing-btn {
+  width: 10rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: -1rem;
+  border: none;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  transition-duration: 0.3s;
+  transition-property: color, transform, background-color;
+}
+.ticketing-btn:hover {
+  transform: scale(1.05);
+  /* background-color: #ffd600;
+  color: black; */
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}

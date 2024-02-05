@@ -1,3 +1,4 @@
+
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
@@ -20,9 +21,11 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<Signup />} />
+           <Route path="/ticketing" element={<Ticketing />} />
         </Route>
       </Routes>
     </div>
+
   );
 };
 

@@ -75,6 +75,7 @@ function Nav() {
             </li>
             <li>
               <SlUser size={20} />
+
               <p>마이페이지</p>
             </li>
           </ul>
@@ -83,6 +84,7 @@ function Nav() {
     </>
   )
 }
+
 
 export default Nav
 
