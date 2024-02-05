@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Seat.css';
+import React, { useState } from "react";
+import "./Seat.css";
 import { Movie } from "./Ticketing";
 
 interface SeatProps {
@@ -9,8 +9,16 @@ interface SeatProps {
   setSelectedCount: (count: number) => void;
 }
 
-const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIndex, movies }) => {
-  const [selectedSeats, setSelectedSeats] = useState<{ row: string; column: number }[]>([]);
+const Seat: React.FC<SeatProps> = ({
+  selectedCount,
+  setSelectedCount,
+  selectedIndex,
+  movies,
+}) => {
+  const [selectedSeats, setSelectedSeats] = useState<
+    { row: string; column: number }[]
+  >([]);
+  const [reservedSeats, setReservedSeats] = useState([]);
 
   const extractRowAndColumn = (seatId: string) => {
     const row = seatId.charAt(0);
@@ -59,7 +67,7 @@ const Seat: React.FC<SeatProps> = ({ selectedCount, setSelectedCount, selectedIn
     );
     //예약된 좌석 회식으로 변하도록
     //로컬에 저장된 예약된 좌석 가져오기(있으면 가져오고 없으면 안가져옴)
-    const reservedSeatStr = localStorage.getItem("selectedSeats") || null;
+    const reservedSeatStr = localStorage.getItem("selectedSeats") || "[]";
     // 가져온 문자열 객체로 바꿔주기
     const reservedSeats = JSON.parse(reservedSeatStr);
     setReservedSeats(reservedSeats);
