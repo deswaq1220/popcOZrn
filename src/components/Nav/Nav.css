@@ -9,7 +9,7 @@
 
 header {
   width: 100%;
-
+  z-index: 1000;
   height: 80px;
   padding: 30px;
   box-sizing: border-box;
@@ -32,8 +32,7 @@ header {
 
 
 .logo {
-  font-family: "DNFBitBitv2";
-  font-size: 32px;
+  width: 200px;
   color: white;
   cursor: pointer;
 

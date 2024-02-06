@@ -1,5 +1,4 @@
-
-// import React from 'react'
+import logo from "../../assets/images/poocOZrn.png"
 import { SlLock, SlCreditCard, SlUser, SlUserFollow, SlLogout } from "react-icons/sl";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
 import { app } from "../../firebase";
@@ -32,7 +31,7 @@ function Nav() {
     signOut(auth)
       .then(() => {
         setUserData({});
-        localStorage.removeItem('userData')
+        localStorage.clear
         navigate("/");
         alert("로그아웃 되었습니다.")
       })
@@ -49,19 +48,28 @@ function Nav() {
     navigate('/login')
   }
 
+
   const handleSignUp = () => {
     navigate('/sign-up')
   }
 
+  const handleTicketing = () => {
+    if (localStorage.getItem('userData')) {
+      navigate('/ticketing')
+    } else {
+      alert("로그인 후 이용바랍니다.")
+      navigate('/login')
+    }
+  }
 
   return (
     <>
       <header>
 
         <div className="headerWrap">
-          <p className="logo" onClick={handleClickMain}>popcOZrn</p>
+          <img src={logo} className="logo" onClick={handleClickMain} />
           <ul className="icons">
-            <li>
+            <li onClick={handleTicketing}>
               <SlCreditCard size={20} />
               <p>예매하기</p>
             </li>
@@ -69,10 +77,13 @@ function Nav() {
               {isLogin ? <SlLogout size={20} /> : <SlLock size={20} />}
               <p>{isLogin ? "로그아웃" : "로그인"}</p>
             </li>
-            <li onClick={handleSignUp}>
-              <SlUserFollow size={20} />
-              <p>회원가입</p>
-            </li>
+            {!localStorage.getItem('userData') && (
+              <li onClick={handleSignUp}>
+                <SlUserFollow size={20} />
+                <p>회원가입</p>
+              </li>
+
+            )}
             <li>
               <SlUser size={20} />
 

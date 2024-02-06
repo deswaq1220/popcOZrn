@@ -1,29 +1,23 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
 import Ticketing from "./components/Ticketing/Ticketing";
-
-import { Routes, Route, Outlet } from "react-router-dom";
+import MovieBannerSlider from "./components/Main/MovieBannerSlider";
+import Footer from "./components/Footer/Footer";
 
 const App: React.FC = () => {
-  const Layout = () => {
-    return (
-      <>
-        <Nav />
-        <Outlet />
-      </>
-    );
-  };
-
   return (
     <div>
+      <Nav />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<Signup />} />
-          <Route path="/ticketing" element={<Ticketing />} />
-        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/ticketing" element={<Ticketing />} />
+        <Route path="/" element={<MovieBannerSlider />} />{" "}
       </Routes>
+      {/* <Footer/> */}
     </div>
   );
 };
