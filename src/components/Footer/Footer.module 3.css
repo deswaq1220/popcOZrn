@@ -1,0 +1,17 @@
+footer{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1d;
+}
+
+.footerText{
+  color: white;
+}
+
+.atag{
+  text-decoration: none;
+  color: white;
+}

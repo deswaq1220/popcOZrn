@@ -31,7 +31,7 @@ function Nav() {
     signOut(auth)
       .then(() => {
         setUserData({});
-        localStorage.clear
+        localStorage.clear()
         navigate("/");
         alert("로그아웃 되었습니다.")
       })

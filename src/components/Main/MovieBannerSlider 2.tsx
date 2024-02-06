@@ -118,11 +118,11 @@ const MovieBannerSlider: React.FC = () => {
 
   const handleTicketing = () => {
     if(localStorage.getItem('userData')){
-      navigate('/ticketing');
+      navigate('/ticketing')
     }else{
-      alert("로그인 후 이용바랍니다.")
+      alert("로그인 후 이용 바랍니다.")
     }
-  };
+  }
 
   return (
     <div className={styles.sliderContainer}>
