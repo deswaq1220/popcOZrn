@@ -11,12 +11,14 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-height: 900px;
+  max-height: 600px;
   margin-bottom: 10px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.bannerWrap::before {
+/* .bannerWrap::before {
   content: "";
   position: absolute;
   top: 0;
@@ -30,7 +32,7 @@
     rgba(255, 255, 255, 1) 100%
   );
   pointer-events: none;
-}
+} */
 
 .bannerImage {
   display: block;
@@ -41,36 +43,32 @@
 }
 
 .sliderWrapper {
-  position: absolute;
   width: calc(100% - 0px);
-  margin: auto;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
 
 .arrowButton {
-  cursor: pointer;
-  position: relative;
-  top: 40%;
+  height: 40px;
+  width: 40px;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.422);
-  /* color: rgba(255, 255, 255, 0.659); */
-  border: none;
-  padding: 20px;
   font-size: 90px;
   z-index: 1;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .arrowLeft {
-  height: 40px;
-  width: 40px;
   position: absolute;
-  left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .arrowRight {
-  width: 40px;
   position: absolute;
   right: 0;
   display: flex;
@@ -103,17 +101,24 @@
 
 .favoriteButton {
   width: 50px;
-  bottom: -60px;
-  left: -150px;
-  background: none;
-  border: none;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   font-size: 50px;
+  margin: 0;
+  color: black;
 }
 
 .posterWrapper {
   position: relative;
   display: inline-block;
+}
+
+
+.posterWrapper > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .filledHeart {
@@ -132,14 +137,12 @@
 .bookingButton {
   text-align: center;
   width: 200px;
-  left: 120px;
   height: 100;
-  padding: 10px 75px;
+  padding: 10px;
   background-color: #000000;
   color: white;
-  display: flex;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 5px;
+  margin: 4px 0 0 0;
   box-sizing: border-box;
 }

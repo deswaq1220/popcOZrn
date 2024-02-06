@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
 import Ticketing from "./components/Ticketing/Ticketing";
 import MovieBannerSlider from "./components/Main/MovieBannerSlider";
+import Footer from "./components/Footer/Footer";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route path="/ticketing" element={<Ticketing />} />
         <Route path="/" element={<MovieBannerSlider />} />{" "}
       </Routes>
+      {/* <Footer/> */}
     </div>
   );
 };

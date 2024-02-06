@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./MovieBannerSlider.module.css";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 interface Movie {
   id: number;
   title: string;
@@ -11,31 +13,31 @@ interface Movie {
 const movies: Movie[] = [
   {
     id: 1,
-    title: "Deckhee",
+    title: "시민덕희",
     posterPath: "/images/Deckhee.jpeg",
     bannerPath: "/images/Deckhee-Banner.jpeg",
   },
   {
     id: 2,
-    title: "WK",
+    title: "웡카",
     posterPath: "/images/WK.jpeg",
     bannerPath: "/images/WK-Banner.jpeg",
   },
   {
     id: 3,
-    title: "Dog",
+    title: "도그데이즈",
     posterPath: "/images/Dog.jpeg",
     bannerPath: "/images/Dog-Banner.jpeg",
   },
   {
     id: 4,
-    title: "Picnic",
+    title: "소풍",
     posterPath: "/images/Picnic.jpeg",
     bannerPath: "/images/Picnic-Banner.jpeg",
   },
   {
     id: 5,
-    title: "ET",
+    title: "외계인2부",
     posterPath: "/images/ET.jpeg",
     bannerPath: "/images/ET-Banner.jpeg",
   },
@@ -75,13 +77,26 @@ const MovieBannerSlider: React.FC = () => {
   const [currentBanner, setCurrentBanner] = useState<Movie>(movies[0]);
   const [favorites, setFavorites] = useState<{ [id: number]: boolean }>({});
   const sliderRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
-  const toggleFavorite = (id: number) => {
-    setFavorites((currentFavorites) => ({
-      ...currentFavorites,
-      [id]: !currentFavorites[id],
-    }));
+  const toggleFavorite = (movie: Movie) => {
+    if(localStorage.getItem('userData')){
+      setFavorites((currentFavorites) => {
+        const isFavorited = !currentFavorites[movie.id];
+        if (isFavorited) {
+          localStorage.setItem(`favorite_${movie.id}`, JSON.stringify(movie));
+          alert(`${movie.title}을 찜하셨습니다. 마이페이지에서 찜한 목록을 확인하실 수 있습니다.`);
+        } else {
+          localStorage.removeItem(`favorite_${movie.id}`);
+        }
+        return { ...currentFavorites, [movie.id]: isFavorited };
+      });
+    }else{
+      alert("로그인 후 이용바랍니다.")
+    }
   };
+
+
 
   const scrollSlider = (direction: "left" | "right") => {
     if (sliderRef.current) {
@@ -100,6 +115,10 @@ const MovieBannerSlider: React.FC = () => {
       return { ...currentFavorites, [id]: isFavorited };
     });
   };
+
+  const handleTicketing = () => {
+    navigate('/ticketing')
+  }
 
   return (
     <div className={styles.sliderContainer}>
@@ -129,19 +148,20 @@ const MovieBannerSlider: React.FC = () => {
                 alt={movie.title}
                 className={styles.poster}
               />
-              <div className={styles.buttonWrap}>
+              <div className={styles.buttonWrapper}>
                 <button
                   className={styles.favoriteButton}
                   onClick={(e) => {
                     e.stopPropagation();
-                    toggleFavorite(movie.id);
+                    toggleFavorite(movie);
                   }}
                 >
-                  {favorites[movie.id] ? "🩷" : "💔"}
+                  {favorites[movie.id] ? <IoHeartSharp /> : <IoHeartOutline />}
                 </button>
-                <button className={styles.bookingButton} onClick={(e) => {}}>
+                <button className={styles.bookingButton} onClick={handleTicketing}>
                   예매하기
                 </button>
+
               </div>
             </div>
           ))}
@@ -151,7 +171,7 @@ const MovieBannerSlider: React.FC = () => {
           onClick={() => scrollSlider("right")}
           className={`${styles.arrowButton} ${styles.arrowRight}`}
         >
-          {">"}
+          <IoIosArrowForward />
         </button>
       </div>
     </div>
