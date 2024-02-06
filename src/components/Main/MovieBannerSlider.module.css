@@ -4,17 +4,16 @@
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 80px; 
-  
+  margin-top: 80px;
 }
 
 .bannerWrap {
   position: relative;
-  width: 100%; 
+  width: 100%;
   height: auto;
-  max-height: 600px; 
+  max-height: 900px;
   margin-bottom: 10px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .bannerWrap::before {
@@ -24,25 +23,27 @@
   left: 0;
   width: 100%;
   z-index: 2;
-  background: radial-gradient(circle,
+  background: radial-gradient(
+    circle,
     rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.5) 80%, 
-    rgba(255, 255, 255, 1) 100%);
-  pointer-events: none; 
+    rgba(255, 255, 255, 0.5) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none;
 }
 
 .bannerImage {
-  display: block; 
-  width: 100%;  
+  display: block;
+  width: 100%;
   object-fit: cover;
-  position: relative; 
+  position: relative;
   z-index: 1;
 }
 
 .sliderWrapper {
-  position: relative;
-  width: calc(100% - 0px); 
-  margin: auto; 
+  position: absolute;
+  width: calc(100% - 0px);
+  margin: auto;
 }
 
 .arrowButton {
@@ -51,15 +52,15 @@
   top: 40%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.422);
-  color: rgba(255, 255, 255, 0.659);
+  /* color: rgba(255, 255, 255, 0.659); */
   border: none;
   padding: 20px;
   font-size: 90px;
   z-index: 1;
-
 }
 
 .arrowLeft {
+  height: 40px;
   width: 40px;
   position: absolute;
   left: 0px;
@@ -75,7 +76,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .slider {
@@ -92,7 +92,6 @@
   border-radius: 10px;
 }
 
-
 .slider::-webkit-scrollbar {
   display: none;
 }
@@ -103,13 +102,13 @@
 }
 
 .favoriteButton {
-  position: absolute;
-  top: -10px; 
-  right: 100px; 
+  width: 50px;
+  bottom: -60px;
+  left: -150px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 50px; 
+  font-size: 50px;
 }
 
 .posterWrapper {
@@ -118,9 +117,29 @@
 }
 
 .filledHeart {
-  fill: red; /* Filled heart in red */
+  fill: red;
 }
 
 .emptyHeart {
-  fill: grey; /* Empty heart in grey, adjust as needed */
+  fill: grey;
+}
+
+.buttonWarp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bookingButton {
+  text-align: center;
+  width: 200px;
+  left: 120px;
+  height: 100;
+  padding: 10px 75px;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  box-sizing: border-box;
 }
