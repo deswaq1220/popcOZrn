@@ -98,7 +98,7 @@ const Seat: React.FC<SeatProps> = ({
     );
   };
 
-  const renderSeats = () => {
+  const renderSeats= () => {
     const rows = ["A", "B", "C", "D", "E", "F"];
     const columns = Array.from({ length: 10 }, (_, index) => index + 1);
 

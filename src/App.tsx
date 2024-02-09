@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
-import Ticketing from "./components/Ticketing/Ticketing";
+import { Ticketing } from "./components/Ticketing/Ticketing";
 import MovieBannerSlider from "./components/Main/MovieBannerSlider";
 import MyPage from "./components/Mypage/Mypage";
 

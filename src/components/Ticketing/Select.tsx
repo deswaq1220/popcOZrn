@@ -10,8 +10,8 @@ const Select = ({ movies, onSelectItem }: SelectProps) => {
   return (
     <>
       <select onChange={onSelectItem} className="select">
-        {movies.map((item) => {
-          return <option>{item.title}</option>;
+        {movies.map((item, key) => {
+          return <option key={key}>{item.title}</option>;
         })}
       </select>
     </>
