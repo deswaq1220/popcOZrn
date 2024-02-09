@@ -74,9 +74,6 @@ function Nav() {
     }
   };
 
-  const handleMyPage = () => {
-    navigate('/my-page')
-  }
 
   return (
     <>
