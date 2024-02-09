@@ -62,6 +62,10 @@ function Nav() {
     }
   }
 
+  const handleMyPage = () => {
+    navigate('/my-page')
+  }
+
   return (
     <>
       <header>
@@ -82,11 +86,9 @@ function Nav() {
                 <SlUserFollow size={20} />
                 <p>회원가입</p>
               </li>
-
             )}
-            <li>
+            <li onClick={handleMyPage}>
               <SlUser size={20} />
-
               <p>마이페이지</p>
             </li>
           </ul>

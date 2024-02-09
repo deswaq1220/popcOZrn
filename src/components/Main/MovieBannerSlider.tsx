@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieBannerSlider.module.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -66,7 +66,7 @@ const movies: Movie[] = [
     bannerPath: "/images/Wish-Banner.jpeg",
   },
   {
-    id: 5,
+    id: 10,
     title: "Monster",
     posterPath: "/images/Monster.jpeg",
     bannerPath: "/images/Monster-Banner.jpeg",
@@ -78,6 +78,19 @@ const MovieBannerSlider: React.FC = () => {
   const [favorites, setFavorites] = useState<{ [id: number]: boolean }>({});
   const sliderRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 페이지가 로드될 때 로컬스토리지에서 찜한 영화 목록을 불러옴
+    const savedFavorites: { [key: number]: boolean } = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith("favorite_")) {
+        const movieId = parseInt(key.replace("favorite_", ""));
+        savedFavorites[movieId] = true;
+      }
+    }
+    setFavorites(savedFavorites);
+  }, []);
 
   const toggleFavorite = (movie: Movie) => {
     if(localStorage.getItem('userData')){
@@ -106,15 +119,15 @@ const MovieBannerSlider: React.FC = () => {
     }
   };
 
-  const toggleFavoriteAlert = (id: number) => {
-    setFavorites((currentFavorites) => {
-      const isFavorited = !currentFavorites[id];
-      if (isFavorited) {
-        alert("찜!! 되었어요");
-      }
-      return { ...currentFavorites, [id]: isFavorited };
-    });
-  };
+  // const toggleFavoriteAlert = (id: number) => {
+  //   setFavorites((currentFavorites) => {
+  //     const isFavorited = !currentFavorites[id];
+  //     if (isFavorited) {
+  //       alert("찜!! 되었어요");
+  //     }
+  //     return { ...currentFavorites, [id]: isFavorited };
+  //   });
+  // };
 
   const handleTicketing = () => {
     if(localStorage.getItem('userData')){

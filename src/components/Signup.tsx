@@ -46,6 +46,7 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         console.log(userCredential, user);
+        localStorage.setItem('userData',JSON.stringify(userCredential.user))
 
         updateProfile(user, {
           displayName: name,
@@ -54,7 +55,7 @@ const Signup = () => {
             console.log(user.displayName);
 
             alert(`${user.displayName}님 가입을 축하합니다!`);
-            navigate("/login");
+            navigate("/");
 
             setErrorMsg("");
 
