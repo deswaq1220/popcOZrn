@@ -5,7 +5,7 @@ import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
 import Ticketing from "./components/Ticketing/Ticketing";
 import MovieBannerSlider from "./components/Main/MovieBannerSlider";
-import Footer from "./components/Footer/Footer";
+import MyPage from "./components/Mypage/Mypage";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +15,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/ticketing" element={<Ticketing />} />
+        <Route path="/my-page" element={<MyPage />} />
         <Route path="/" element={<MovieBannerSlider />} />{" "}
       </Routes>
       {/* <Footer/> */}
