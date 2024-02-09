@@ -12,6 +12,7 @@ const Signup = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [name, setName] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  
   const navigate = useNavigate();
 
   //이용약관 동의
@@ -37,6 +38,12 @@ const Signup = () => {
   const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
+
+  if (!termsAgreed ) {
+      setErrorMsg("모든 필수 항목에 동의해야 회원가입할 수 있습니다.");
+    return;
+  }
+
     if (password !== confirmPassword) {
       setErrorMsg("비밀번호가 일치하지 않습니다.");
       return;
@@ -46,6 +53,7 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         console.log(userCredential, user);
+        localStorage.setItem('userData',JSON.stringify(userCredential.user))
 
         updateProfile(user, {
           displayName: name,
@@ -54,7 +62,7 @@ const Signup = () => {
             console.log(user.displayName);
 
             alert(`${user.displayName}님 가입을 축하합니다!`);
-            navigate("/login");
+            navigate("/");
 
             setErrorMsg("");
 

@@ -93,6 +93,8 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setUserData(result.user);
+        console.log(result.user)
+        localStorage.setItem('userData', JSON.stringify(result.user))
         alert("로그인 되었습니다")
         navigate("/")
       })

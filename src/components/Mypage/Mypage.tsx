@@ -48,6 +48,7 @@ const MyPage: React.FC = () => {
         setUser(null);
         setFavoritedMovies([]);
         navigate("/login");
+        localStorage.clear();
       })
       .catch((error) => {
         console.error("로그아웃 에러", error);

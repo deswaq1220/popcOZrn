@@ -74,6 +74,7 @@ function Nav() {
     }
   };
 
+
   return (
     <>
       <header>
@@ -96,7 +97,6 @@ function Nav() {
             )}
             <li onClick={handleMyPage}>
               <SlUser size={20} />
-
               <p>마이페이지</p>
             </li>
           </ul>
