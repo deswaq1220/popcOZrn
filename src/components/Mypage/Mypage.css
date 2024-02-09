@@ -1,0 +1,130 @@
+.mypage-container{
+    padding:200px 0 0 100px;
+    box-sizing: border-box;
+  }
+  .mypage-title{
+    font-size: 3rem;
+    font-weight: 500;
+    padding-bottom:80px;
+  }
+  .mypage-flex{
+    display: flex;
+  
+  }
+  .mypage-profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 463px;
+    border: 2px solid black;
+    margin-right: 100px;
+    border-radius: 20px;
+  }
+  .mypage-image{
+    font-size: 15rem;
+    
+  }
+  .mypage-info{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  p{
+    padding-bottom: 10px;
+  }
+  .logout-btn{
+    width: 100px;
+    height: 40px;
+    background-color: #000000;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    color: white;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: color, transform, background-color;
+  }
+  .logout-btn:hover{
+    transform: scale(1.05);
+    background-color: #ca375c;
+    color: rgb(255, 255, 255);
+  
+  }
+  .needYourId{
+  
+    font-size: 1.85rem;
+    text-align: center;
+  
+  }
+  .login-btn {
+    width: 6rem;
+    margin-top: 4rem;
+    background-color: white;
+    padding: 0.7rem;
+    font-size: 1rem;
+    background-color: #000000;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    color: white;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: color, transform, background-color;
+  }
+  .login-btn:hover {
+    transform: scale(1.05);
+    background-color: #ca375c;
+    color: rgb(255, 255, 255);
+  }
+  .mypage-movies{
+    display: flex;
+  }
+  .mypage-movie{
+    margin-left: 50px;
+  }
+  .movie-detail{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  .movie-reserve{
+    width: 350px;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(201, 233, 115);
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .favorited-movies>h2{
+    font-weight: 400;
+  }
+  .favorited-movies-detail{
+    display: flex;
+  }
+  .favorited-movie{
+    margin-right: 50px;
+  }
+  .movie-img{
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+  }
+  .movie-title{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  
