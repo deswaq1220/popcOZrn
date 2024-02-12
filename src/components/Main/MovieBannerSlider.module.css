@@ -1,0 +1,148 @@
+.sliderContainer {
+  position: relative;
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 80px;
+}
+
+.bannerWrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* .bannerWrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.5) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  pointer-events: none;
+} */
+
+.bannerImage {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.sliderWrapper {
+  width: calc(100% - 0px);
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.arrowButton {
+  height: 40px;
+  width: 40px;
+  transform: translateY(-50%);
+  font-size: 90px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.arrowLeft {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.arrowRight {
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 40px;
+  gap: 20px;
+}
+
+.poster {
+  min-width: 300px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.favoriteButton {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  font-size: 50px;
+  margin: 0;
+  color: black;
+}
+
+.posterWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+
+.posterWrapper > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filledHeart {
+  fill: red;
+}
+
+.emptyHeart {
+  fill: grey;
+}
+
+.buttonWarp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bookingButton {
+  text-align: center;
+  width: 200px;
+  height: 100;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 4px 0 0 0;
+  box-sizing: border-box;
+}

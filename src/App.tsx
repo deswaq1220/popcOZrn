@@ -1,44 +1,28 @@
-import { useState } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Nav/Nav";
+import Ticketing from "./components/Ticketing/Ticketing";
+import MovieBannerSlider from "./components/Main/MovieBannerSlider";
 
-import { Routes, Route, Link, Outlet } from "react-router-dom";
-// import { BrowserRouter as Router } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
-// console.log(auth);
+import Footer from "./components/Footer/Footer";
+import MyPage from "./components/Mypage/Mypage";
 
 const App: React.FC = () => {
-  const Layout = () => {
-    return (
-      <>
-        <Nav />
-        <Outlet />
-      </>
-    );
-  };
-
   return (
     <div>
+      <Nav />
       <Routes>
-
-        <Route path="/" element={<Layout />}>
-          <Route
-            path="/login"
-            element={
-              <Login
-              // email={email}
-              // setEmail={setEmail}
-              // password={password}
-              // setPassword={setPassword}
-              // errorMsg={errorMsg}
-              // setErrorMsg={setErrorMsg}
-              />
-            }
-          />
-          <Route path="/sign-up"element={<Signup/>}/>
-        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
+        <Route path="/ticketing" element={<Ticketing />} />
+        <Route path="/my-page" element={<MyPage />} />
+        <Route path="/" element={<MovieBannerSlider />} />{" "}
+        <Route path="/my-page" element={<MyPage />} />{" "}
+        
       </Routes>
+      {/* <Footer/> */}
     </div>
   );
 };
