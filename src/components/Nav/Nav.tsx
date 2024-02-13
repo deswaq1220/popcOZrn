@@ -12,16 +12,18 @@ import "./Nav.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const initialUserData = localStorage.getItem("userData")
-  ? JSON.parse(localStorage.getItem("userData"))
-  : {};
+let initialUserData = {};
+const userDataFromStorage = localStorage.getItem("userData");
 
+if (userDataFromStorage !== null) {
+  initialUserData = JSON.parse(userDataFromStorage);
+}
 function Nav() {
   const [userData, setUserData] = useState(initialUserData);
   const [isLogin, setIsLogin] = useState(false);
   const auth = getAuth(app);
   const navigate = useNavigate();
-
+  console.log(userData);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -73,7 +75,6 @@ function Nav() {
       navigate("/login");
     }
   };
-
 
   return (
     <>

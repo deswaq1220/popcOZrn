@@ -10,18 +10,8 @@ import { useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
-import { auth,app } from "../../firebase";
-import Signup from "../Signup";
-
-// React.FC<{
-//   // email: string;
-//   // setEmail: React.Dispatch<React.SetStateAction<string>>;
-//   // password: string;
-//   // setPassword: React.Dispatch<React.SetStateAction<string>>;
-//   // errorMsg: string;
-//   // setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
-//   // { email, setEmail, password, setPassword, errorMsg, setErrorMsg }
-// }>
+import { app } from "../../firebase";
+// import Signup from "../Signup";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,7 +19,7 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState("");
   const [userData, setUserData] = useState({});
-
+  console.log(userData);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
@@ -39,7 +29,7 @@ const Login = () => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -50,8 +40,8 @@ const Login = () => {
         setEmail("");
         setPassword("");
         setErrorMsg("");
-        localStorage.setItem("userData", JSON.stringify(userCredential.user))
-        navigate('/')
+        localStorage.setItem("userData", JSON.stringify(user));
+        navigate("/");
       })
       .catch((error) => {
         //가입실패했을 때
@@ -93,10 +83,10 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setUserData(result.user);
-        console.log(result.user)
-        localStorage.setItem('userData', JSON.stringify(result.user))
-        alert("로그인 되었습니다")
-        navigate("/")
+        console.log(result.user);
+        localStorage.setItem("userData", JSON.stringify(result.user));
+        alert("로그인 되었습니다");
+        navigate("/");
       })
       .catch((error) => {
         alert(error.message);

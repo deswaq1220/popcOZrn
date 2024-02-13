@@ -15,10 +15,12 @@ const Seat: React.FC<SeatProps> = ({
   selectedIndex,
   movies,
 }) => {
+  const [reservedSeats, setReservedSeats] = useState<
+    { row: string; column: number }[]
+  >([]);
   const [selectedSeats, setSelectedSeats] = useState<
     { row: string; column: number }[]
   >([]);
-  const [reservedSeats, setReservedSeats] = useState([]);
 
   const extractRowAndColumn = (seatId: string) => {
     const row = seatId.charAt(0);
@@ -72,6 +74,7 @@ const Seat: React.FC<SeatProps> = ({
     const reservedSeats = JSON.parse(reservedSeatStr);
     setReservedSeats(reservedSeats);
   };
+
   const isreservedSeats = (seatId: string) => {
     const { row, column } = extractRowAndColumn(seatId);
     return reservedSeats.some(
@@ -139,7 +142,7 @@ const Seat: React.FC<SeatProps> = ({
       return 0;
     }
 
-    return selectedSeats.reduce((total, seat) => {
+    return selectedSeats.reduce((total) => {
       const selectedMovie = movies[selectedIndex];
       const seatPrice = selectedMovie ? selectedMovie.price : 0;
       return total + seatPrice;

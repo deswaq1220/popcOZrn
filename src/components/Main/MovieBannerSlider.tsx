@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieBannerSlider.module.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -93,27 +93,27 @@ const MovieBannerSlider: React.FC = () => {
   }, []);
 
   const toggleFavorite = (movie: Movie) => {
-    if(localStorage.getItem('userData')){
+    if (localStorage.getItem("userData")) {
       setFavorites((currentFavorites) => {
         const isFavorited = !currentFavorites[movie.id];
         if (isFavorited) {
           localStorage.setItem(`favorite_${movie.id}`, JSON.stringify(movie));
-          alert(`${movie.title}을 찜하셨습니다. 마이페이지에서 찜한 목록을 확인하실 수 있습니다.`);
+          alert(
+            `${movie.title}을 찜하셨습니다. 마이페이지에서 찜한 목록을 확인하실 수 있습니다.`
+          );
         } else {
           localStorage.removeItem(`favorite_${movie.id}`);
         }
         return { ...currentFavorites, [movie.id]: isFavorited };
       });
-    }else{
-      alert("로그인 후 이용바랍니다.")
+    } else {
+      alert("로그인 후 이용바랍니다.");
     }
   };
 
-
-
   const scrollSlider = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const { scrollLeft, clientWidth } = sliderRef.current;
+      const { clientWidth } = sliderRef.current;
       const scrollAmount = direction === "left" ? -clientWidth : clientWidth;
       sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
@@ -130,10 +130,10 @@ const MovieBannerSlider: React.FC = () => {
   // };
 
   const handleTicketing = () => {
-    if(localStorage.getItem('userData')){
-      navigate('/ticketing');
-    }else{
-      alert("로그인 후 이용바랍니다.")
+    if (localStorage.getItem("userData")) {
+      navigate("/ticketing");
+    } else {
+      alert("로그인 후 이용바랍니다.");
     }
   };
 
@@ -175,10 +175,12 @@ const MovieBannerSlider: React.FC = () => {
                 >
                   {favorites[movie.id] ? <IoHeartSharp /> : <IoHeartOutline />}
                 </button>
-                <button className={styles.bookingButton} onClick={handleTicketing}>
+                <button
+                  className={styles.bookingButton}
+                  onClick={handleTicketing}
+                >
                   예매하기
                 </button>
-
               </div>
             </div>
           ))}
