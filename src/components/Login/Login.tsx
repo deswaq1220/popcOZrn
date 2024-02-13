@@ -134,7 +134,7 @@ const Login = () => {
         </div>
         <div className="google-login" onClick={handleAuth}>
           <img
-            src="/src/img/google-logo.png"
+            src="/public/images/google-logo.png"
             alt="google-logo"
             className="google-logo"
           />
