@@ -64,21 +64,6 @@ const Login = () => {
       });
   };
 
-  //로그인 상태 파악
-  // const [IsLoggined, setIsLoggined] = useState(false);
-  // const auth = getAuth();
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     // User is signed in, see docs for a list of available properties
-  //     // https://firebase.google.com/docs/reference/js/auth.user
-  //     const uid = user.uid;
-  //     // ...
-  //   } else {
-  //     // User is signed out
-  //     // ...
-  //   }
-  // });
-
   const handleAuth = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -134,7 +119,7 @@ const Login = () => {
         </div>
         <div className="google-login" onClick={handleAuth}>
           <img
-            src="/public/images/google-logo.png"
+            src="/images/google-logo.png"
             alt="google-logo"
             className="google-logo"
           />

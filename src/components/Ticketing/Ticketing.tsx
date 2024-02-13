@@ -9,21 +9,21 @@ export interface Movie {
 }
 
 export const movies: Movie[] = [
-  { title: "웡카", poster: "/public/images/WK.jpeg", price: 12000 },
+  { title: "웡카", poster: "/images/WK.jpeg", price: 12000 },
   {
     title: "시민덕희",
-    poster: "/public/images/Deckhee.jpeg",
+    poster: "/images/Deckhee.jpeg",
     price: 13000,
   },
   {
     title: "외계인+2부",
-    poster: "/public/images/ET.jpeg",
+    poster: "/images/ET.jpeg",
     price: 12000,
   },
-  { title: "소풍", poster: "/public/images/Picnic.jpeg", price: 12000 },
+  { title: "소풍", poster: "/images/Picnic.jpeg", price: 12000 },
   {
     title: "도그데이즈",
-    poster: "/public/images/Dog.jpeg",
+    poster: "/images/Dog.jpeg",
     price: 12000,
   },
 ];
