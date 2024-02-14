@@ -35,7 +35,7 @@ const Signup = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSignup = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (!termsAgreed) {
@@ -158,7 +158,7 @@ const Signup = () => {
               termsAgreed={termsAgreed}
               setTermsAgreed={setTermsAgreed}
             />
-            <button type="submit" onClick={() => handleSignup}>
+            <button type="submit" onClick={handleSignup}>
               가입하기
             </button>
           </form>
